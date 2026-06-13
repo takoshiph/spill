@@ -6,16 +6,16 @@ export default function Landing() {
   return (
     <div className="screen center">
       <div className="spacer" />
-      <div className="hero">
+      <div className="hero landing-enter">
         <Logo />
         <p className="tagline">Every secret has a group chat.</p>
       </div>
-      <div className="stack" style={{ marginTop: 22 }}>
+      <div className="stack landing-enter delay-1" style={{ marginTop: 22 }}>
         <button className="btn btn-primary" onClick={() => nav('/create')}>Host a game</button>
         <button className="btn btn-secondary" onClick={() => nav('/join')}>Join with a code</button>
       </div>
       <div className="spacer" />
-      <button className="link" onClick={() => nav('/privacy')}>Privacy</button>
+      <button className="link landing-enter delay-2" onClick={() => nav('/privacy')}>Privacy</button>
     </div>
   )
 }

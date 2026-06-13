@@ -85,7 +85,14 @@ export default function Lobby({ room, players, isHost, me, playerId }) {
         <p className="dim">{players.length} {players.length === 1 ? 'player' : 'players'} in the room</p>
       </div>
 
-      <PlayerList players={players} hostId={room.host_id} />
+      {players.length < 2 ? (
+        <div className="lobby-empty">
+          <img className="empty-img" src="/empty-state.png" alt="" />
+          <p className="dim">Nobody’s here yet — share the code above to fill the room.</p>
+        </div>
+      ) : (
+        <PlayerList players={players} hostId={room.host_id} />
+      )}
 
       <div className="spacer" />
       {isHost ? (

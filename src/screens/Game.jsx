@@ -33,6 +33,7 @@ export default function Game({ room, players, me, isHost, playerId, online }) {
   const deck = useMemo(() => buildDeck(room.vibe, room.code), [room.vibe, room.code])
 
   const [intro, setIntro] = useState(true)
+  const [introLift, setIntroLift] = useState(false)
   const [sheet, setSheet] = useState(false)
   const [confirmEnd, setConfirmEnd] = useState(false)
   const [showFu, setShowFu] = useState(false)
@@ -51,8 +52,10 @@ export default function Game({ room, players, me, isHost, playerId, online }) {
   const { setReady, draw, maybeAdvance, forceNext, endGame } = useGameActions(room, livePlayers, deck.length)
 
   useEffect(() => {
-    const t = setTimeout(() => setIntro(false), 2550)
-    return () => clearTimeout(t)
+    // shuffle plays, then the stack lifts toward the deck position, then hand off
+    const tLift = setTimeout(() => setIntroLift(true), 2150)
+    const tDone = setTimeout(() => setIntro(false), 2650)
+    return () => { clearTimeout(tLift); clearTimeout(tDone) }
   }, [])
 
   // ephemeral reaction channel (floating bubbles)
@@ -122,7 +125,7 @@ export default function Game({ room, players, me, isHost, playerId, online }) {
   if (intro) {
     return (
       <div className="game-screen">
-        <div className="shuffle">
+        <div className={`shuffle${introLift ? ' lift' : ''}`}>
           <div className="s-card" /><div className="s-card" />
           <div className="s-card" /><div className="s-card" />
           <span className="s-hint">Shuffling the deck…</span>
@@ -147,7 +150,7 @@ export default function Game({ room, players, me, isHost, playerId, online }) {
 
       {room.phase === 'draw' && (
         <>
-          <div className="peek-wrap">
+          <div className="peek-wrap soft-in">
             <div className="peek-card peek-b2" />
             <div className="peek-card peek-b1" />
             {isMyDraw ? (

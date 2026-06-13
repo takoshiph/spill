@@ -20,7 +20,7 @@ export default function EndGame({ players }) {
 
   return (
     <div className="screen center endgame">
-      <img className="empty-img" src="/empty-state.png" alt="" />
+      <img className="endgame-logo" src="/logo.png" alt="Spill! Your Group Chat" />
       <h1>That was real.</h1>
       <p className="dim">
         {count} of you showed up honestly tonight — that’s rarer than you think,

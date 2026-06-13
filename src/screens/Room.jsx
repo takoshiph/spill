@@ -34,7 +34,14 @@ export default function Room() {
     }
   }, [room, players, online, playerId])
 
-  if (loading) return <div className="screen center"><p className="dim">Loading room…</p></div>
+  if (loading) return (
+    <div className="screen center">
+      <div className="room-loader" aria-label="Loading room">
+        <span className="room-spinner" />
+        <p className="dim">Setting the table…</p>
+      </div>
+    </div>
+  )
   if (!room) return <div className="screen center"><h2>Room not found</h2><a href="/">Back to start</a></div>
 
   const ctx = { room, players, me, isHost: room.host_id === playerId, playerId, online }
