@@ -1,0 +1,509 @@
+{
+  "spicy": [
+    {
+      "tier": "warmup",
+      "theme": "love",
+      "text": "Tell us about the last person who really caught your eye — what was it about them?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "joy",
+      "text": "Tell us about the best compliment you've ever gotten — who said it, and when?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "roots",
+      "text": "Tell us about your first real crush — paint us the whole picture."
+    },
+    {
+      "tier": "warmup",
+      "theme": "joy",
+      "text": "Tell us about a time your flirting actually worked — how'd it go down?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "dreams",
+      "text": "Tell us about your idea of an unforgettable first date — describe the night."
+    },
+    {
+      "tier": "warmup",
+      "theme": "love",
+      "text": "Tell us about a time you felt really wanted — what was happening?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "values",
+      "text": "Tell us about a dating opinion you'll defend — and the experience that gave it to you."
+    },
+    {
+      "tier": "warmup",
+      "theme": "values",
+      "text": "Tell us about a quality you used to ignore but now find irresistible — what changed?"
+    },
+    {
+      "tier": "open",
+      "theme": "love",
+      "text": "Tell us about the last time you had a crush — and exactly what gave you away."
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about the boldest thing you've done to get someone's attention."
+    },
+    {
+      "tier": "open",
+      "theme": "love",
+      "text": "Tell us about a way you show love that people don't always notice — a recent example?"
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about a time you wish you'd been braver in romance — what held you back?"
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about a romantic moment you've replayed in your head way too many times."
+    },
+    {
+      "tier": "open",
+      "theme": "dreams",
+      "text": "Tell us about something you really want in your next relationship that you've never said out loud."
+    },
+    {
+      "tier": "open",
+      "theme": "joy",
+      "text": "Tell us about the most romantic thing you've ever done for someone — walk us through it."
+    },
+    {
+      "tier": "open",
+      "theme": "values",
+      "text": "Tell us about a time you were drawn to someone and couldn't explain why."
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about how you've grown in love since your last relationship — what's different now?"
+    },
+    {
+      "tier": "open",
+      "theme": "dreams",
+      "text": "Tell us about a date scenario you keep daydreaming about."
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about the most emotionally exposed you've let yourself be with someone."
+    },
+    {
+      "tier": "deep",
+      "theme": "love",
+      "text": "Tell us about something you needed from a partner but were too scared to ask for."
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about a pattern in who you fall for that you're trying to break."
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about a time you felt deeply wanted — and a time you felt unwanted."
+    },
+    {
+      "tier": "deep",
+      "theme": "values",
+      "text": "Tell us about a moment that showed you what real intimacy means to you."
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about a part of yourself you struggle to let someone see — when did you last try?"
+    },
+    {
+      "tier": "deep",
+      "theme": "dreams",
+      "text": "Tell us about the kind of love you secretly hope exists for you."
+    },
+    {
+      "tier": "deep",
+      "theme": "love",
+      "text": "Tell us about a regret you carry from how you treated someone you loved."
+    },
+    {
+      "tier": "deep",
+      "theme": "dreams",
+      "text": "Tell us about what the most honest version of you would ask for in love."
+    },
+    {
+      "tier": "deep",
+      "theme": "love",
+      "text": "Tell us about the bravest thing you'd do — or have done — for the right person."
+    },
+    {
+      "tier": "warmup",
+      "theme": "love",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: describe your type in three words — then defend them."
+    },
+    {
+      "tier": "open",
+      "theme": "values",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: tell us about the most attractive thing someone can do in a conversation."
+    },
+    {
+      "tier": "deep",
+      "theme": "love",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: tell us one thing you wish people understood about how you love."
+    },
+    {
+      "tier": "open",
+      "theme": "joy",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: confess your most-used flirting move — and a time it worked (or flopped)."
+    }
+  ],
+  "deep": [
+    {
+      "tier": "warmup",
+      "theme": "joy",
+      "text": "Tell us about a small moment this week that genuinely made you happy — set the scene for us."
+    },
+    {
+      "tier": "warmup",
+      "theme": "roots",
+      "text": "Tell us about where you grew up — paint a picture of one street, room, or person from it."
+    },
+    {
+      "tier": "warmup",
+      "theme": "dreams",
+      "text": "Tell us about a dream you had as a kid — where did it come from, and what happened to it?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "love",
+      "text": "Tell us about someone who makes you feel most like yourself — how did the two of you meet?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "joy",
+      "text": "Tell us about something you're quietly proud of — walk us through how it actually happened."
+    },
+    {
+      "tier": "warmup",
+      "theme": "values",
+      "text": "Tell us about a time recently you felt completely content — what were you doing in that moment?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "values",
+      "text": "Tell us about a little ritual or habit that grounds you — how did it start?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "dreams",
+      "text": "Tell us about something you're looking forward to — and the story of why it matters to you."
+    },
+    {
+      "tier": "open",
+      "theme": "values",
+      "text": "Tell us about a belief you used to hold strongly and let go of — what was the moment it changed?"
+    },
+    {
+      "tier": "open",
+      "theme": "love",
+      "text": "Tell us about the last time you felt truly seen by someone — what exactly did they do?"
+    },
+    {
+      "tier": "open",
+      "theme": "dreams",
+      "text": "Tell us about a goal you're chasing that scares you — where are you in the journey right now?"
+    },
+    {
+      "tier": "open",
+      "theme": "roots",
+      "text": "Tell us about something you needed to hear as a kid but never did — who do you wish had said it?"
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about something you're quietly working through these days — how's it been going?"
+    },
+    {
+      "tier": "open",
+      "theme": "love",
+      "text": "Tell us about a time you really felt loved — take us into what was happening."
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about a part of yourself you usually keep hidden — when did you last let someone see it?"
+    },
+    {
+      "tier": "open",
+      "theme": "roots",
+      "text": "Tell us about a lesson from your family — and a time it actually played out in your life."
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about a time you wish you'd been braver — what happened, and what held you back?"
+    },
+    {
+      "tier": "open",
+      "theme": "joy",
+      "text": "Tell us about a time you felt most like the person you want to become — what were you doing?"
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about a fear you don't usually talk about — when do you feel it most?"
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about something you're still trying to forgive yourself for — what happened?"
+    },
+    {
+      "tier": "deep",
+      "theme": "love",
+      "text": "Tell us about someone you miss right now — share a specific memory with them."
+    },
+    {
+      "tier": "deep",
+      "theme": "dreams",
+      "text": "Tell us about a dream you gave up on — walk us through the moment you let it go."
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about a time you were afraid people would find out something about you — what was at stake?"
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about the loneliest you've felt, even surrounded by people — what was going on?"
+    },
+    {
+      "tier": "deep",
+      "theme": "love",
+      "text": "Tell us about a relationship you wish you could repair — what happened between you two?"
+    },
+    {
+      "tier": "deep",
+      "theme": "dreams",
+      "text": "Tell us about the future you most want — describe an ordinary day in that life."
+    },
+    {
+      "tier": "deep",
+      "theme": "values",
+      "text": "Tell us something true about you that you've never told this group — start wherever feels right."
+    },
+    {
+      "tier": "deep",
+      "theme": "dreams",
+      "text": "Tell us about a time you surprised yourself with what you were capable of."
+    },
+    {
+      "tier": "warmup",
+      "theme": "love",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: tell the group one thing you admire about the person on your left — and a moment that showed it."
+    },
+    {
+      "tier": "open",
+      "theme": "roots",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: tell us about one thing you wish you'd had more of growing up."
+    },
+    {
+      "tier": "open",
+      "theme": "joy",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: tell us about a moment from the last year you're genuinely proud of."
+    },
+    {
+      "tier": "deep",
+      "theme": "dreams",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: tell us about something that scares you that you're moving toward anyway."
+    }
+  ],
+  "chaotic": [
+    {
+      "tier": "warmup",
+      "theme": "joy",
+      "text": "Tell us about a completely useless talent you have — how did you even discover it?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "values",
+      "text": "Tell us about the weirdest thing you genuinely believe — and how you got there."
+    },
+    {
+      "tier": "warmup",
+      "theme": "joy",
+      "text": "Tell us about the last time you laughed until you couldn't breathe — what set it off?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "joy",
+      "text": "Tell us about a food combo you love that horrifies everyone — when did this start?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "values",
+      "text": "Tell us about a time your competitive side completely took over — what happened?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "roots",
+      "text": "Tell us about your worst outfit or haircut phase — walk us through what you were thinking."
+    },
+    {
+      "tier": "warmup",
+      "theme": "joy",
+      "text": "Tell us about the last unhinged thing you Googled — and what led you there."
+    },
+    {
+      "tier": "warmup",
+      "theme": "roots",
+      "text": "Tell us your villain origin story — dramatize the moment it all began."
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about the most unhinged thing you've done that you'd 100% do again — set the scene."
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about the pettiest thing you've ever done — who wronged you, and how'd you get them back?"
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about a habit of yours that would horrify your friends — how'd it start?"
+    },
+    {
+      "tier": "open",
+      "theme": "values",
+      "text": "Tell us about the worst advice you ever gave with total confidence — what happened?"
+    },
+    {
+      "tier": "open",
+      "theme": "love",
+      "text": "Tell us about a text you're SO glad you never sent — what was going on?"
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about the most chaotic decision you've made on zero sleep."
+    },
+    {
+      "tier": "open",
+      "theme": "dreams",
+      "text": "Tell us about a dream so ridiculous you've never said it out loud — go on."
+    },
+    {
+      "tier": "open",
+      "theme": "roots",
+      "text": "Tell us about the wildest rumor you've heard about yourself — and the actual truth."
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about something you do when absolutely no one is watching — been caught yet?"
+    },
+    {
+      "tier": "open",
+      "theme": "values",
+      "text": "Tell us about the dumbest hill you'll die on — and make your case."
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about the closest you've come to blowing up your own life — what happened?"
+    },
+    {
+      "tier": "deep",
+      "theme": "dreams",
+      "text": "Tell us about a chaotic choice you made that secretly changed everything."
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about a fear hiding under all your jokes — when does it show up?"
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about something reckless you did to run from something — what were you avoiding?"
+    },
+    {
+      "tier": "deep",
+      "theme": "values",
+      "text": "Tell us about your messiest year — and the most honest thing it taught you."
+    },
+    {
+      "tier": "deep",
+      "theme": "dreams",
+      "text": "Tell us about a wild dream you'd chase tomorrow if no one would judge you."
+    },
+    {
+      "tier": "deep",
+      "theme": "love",
+      "text": "Tell us about someone who saw you at your most chaotic and stuck around — why does that matter?"
+    },
+    {
+      "tier": "deep",
+      "theme": "roots",
+      "text": "Tell us about a part of your past you laugh about now but that actually hurt."
+    },
+    {
+      "tier": "warmup",
+      "theme": "joy",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: show or describe the last photo in your camera roll — and the story behind it."
+    },
+    {
+      "tier": "warmup",
+      "theme": "love",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: tell us the one word your group chat would use for you — and a moment that earned it."
+    },
+    {
+      "tier": "open",
+      "theme": "joy",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: reveal your most-used emoji and the story of how it got that bad."
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: confess the pettiest thing you've done this month."
+    },
+    {
+      "tier": "deep",
+      "theme": "dreams",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: tell us about a dream you'd start tonight if money didn't exist."
+    }
+  ]
+}
