@@ -7,8 +7,6 @@ export const VIBES = {
   random:  { name: 'Random',  emoji: '🔀', icon: '/icons/vibe-random.png',  desc: 'A mix of everything' }
 }
 
-const TIER_ORDER = ['warmup', 'open', 'deep']
-
 function shuffle(arr, rand = Math.random) {
   const a = [...arr]
   for (let i = a.length - 1; i > 0; i--) {
@@ -40,18 +38,17 @@ export function seedFromCode(code) {
 
 function poolForVibe(vibe) {
   if (vibe === 'random') {
-    return [...questions.spicy, ...questions.deep, ...questions.chaotic].map((q, i) => ({
-      ...q,
-      vibe: 'random',
-    }))
+    return [...questions.spicy, ...questions.deep, ...questions.chaotic].map((q) => ({ ...q, vibe: 'random' }))
   }
   return (questions[vibe] || []).map((q) => ({ ...q, vibe }))
 }
 
 /**
- * Build an ordered deck that escalates Warm-up -> Open up -> Deep.
- * Within each tier the cards (including "everyone" wildcards) are shuffled,
- * using a code-seeded PRNG so all players in the room get the same order.
+ * Build an ordered deck that ramps gently, then escalates in cycles so even a
+ * short session reaches the deep cards (instead of spending the whole night in
+ * warm-up). Each tier is shuffled with a code-seeded PRNG, so every device in
+ * the room builds the identical order. Pacing: 2 warm-up + 1 open to ease in,
+ * then repeating (deep, open, warm-up) cycles — depth lands by ~card 4.
  */
 export function buildDeck(vibe, code) {
   const rand = mulberry32(seedFromCode(code) ^ seedFromCode(vibe))
@@ -59,17 +56,28 @@ export function buildDeck(vibe, code) {
   const byTier = { warmup: [], open: [], deep: [] }
   for (const q of pool) (byTier[q.tier] || byTier.open).push(q)
 
-  const deck = []
-  for (const tier of TIER_ORDER) {
-    for (const card of shuffle(byTier[tier], rand)) {
-      deck.push({
-        ...card,
-        target_type: card.target_type || 'self',
-        wildcard: !!card.wildcard,
-      })
-    }
+  const warmup = shuffle(byTier.warmup, rand)
+  const open = shuffle(byTier.open, rand)
+  const deep = shuffle(byTier.deep, rand)
+
+  const ordered = []
+  const take = (bucket, n) => { for (let i = 0; i < n && bucket.length; i++) ordered.push(bucket.shift()) }
+
+  take(warmup, 2)
+  take(open, 1)
+  while (warmup.length || open.length || deep.length) {
+    take(deep, 1)
+    take(open, 1)
+    take(warmup, 1)
   }
-  return deck.map((c, i) => ({ ...c, index: i, id: `${vibe}_${i}` }))
+
+  return ordered.map((card, i) => ({
+    ...card,
+    target_type: card.target_type || 'self',
+    wildcard: !!card.wildcard,
+    index: i,
+    id: `${vibe}_${i}`,
+  }))
 }
 
 export function tierLabel(tier) {

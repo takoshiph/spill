@@ -22,6 +22,18 @@ export default function Room() {
     return () => { supabase.from('players').update({ connected: false }).eq('id', playerId) }
   }, [playerId, roomId])
 
+  // Host migration: if the host goes offline, the lowest-seat online player
+  // claims host so Start / Skip / End never get stranded.
+  useEffect(() => {
+    if (!supabase || !room || online.size === 0) return
+    if (online.has(room.host_id)) return
+    const onlinePlayers = players.filter((p) => online.has(p.id)).sort((a, b) => a.seat - b.seat)
+    const newHost = onlinePlayers[0]
+    if (newHost && newHost.id === playerId) {
+      supabase.from('rooms').update({ host_id: newHost.id }).eq('id', room.id)
+    }
+  }, [room, players, online, playerId])
+
   if (loading) return <div className="screen center"><p className="dim">Loading room…</p></div>
   if (!room) return <div className="screen center"><h2>Room not found</h2><a href="/">Back to start</a></div>
 
