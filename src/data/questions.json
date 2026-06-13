@@ -167,6 +167,98 @@
       "target_type": "everyone",
       "wildcard": true,
       "text": "Everyone: confess your most-used flirting move. And a time it worked (or flopped)."
+    },
+    {
+      "tier": "warmup",
+      "theme": "love",
+      "text": "Tell us about the first time someone made your heart actually race. What did they do?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "joy",
+      "text": "Tell us about the best date you've ever been on. Set the scene for us."
+    },
+    {
+      "tier": "warmup",
+      "theme": "values",
+      "text": "Tell us about a trait you find unexpectedly attractive that you'd never put on a dating profile."
+    },
+    {
+      "tier": "warmup",
+      "theme": "dreams",
+      "text": "Tell us about the kind of flirting that actually works on you. Give us an example."
+    },
+    {
+      "tier": "warmup",
+      "theme": "roots",
+      "text": "Tell us about your very first kiss. Where were you, and how did it happen?"
+    },
+    {
+      "tier": "open",
+      "theme": "love",
+      "text": "Tell us about a time you caught feelings faster than you expected. What tipped you over?"
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about the boldest text you've ever sent. What happened after?"
+    },
+    {
+      "tier": "open",
+      "theme": "dreams",
+      "text": "Tell us about something you secretly want to try with the right person but have never said out loud."
+    },
+    {
+      "tier": "open",
+      "theme": "joy",
+      "text": "Tell us about a moment someone made you feel undeniably wanted. Walk us through it."
+    },
+    {
+      "tier": "open",
+      "theme": "values",
+      "text": "Tell us about a dealbreaker you used to have that you've completely let go of. What changed?"
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about a crush you never acted on. What stopped you?"
+    },
+    {
+      "tier": "open",
+      "theme": "joy",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: in one word, describe the last person who gave you butterflies. Then explain it."
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about the most vulnerable you've ever let yourself be with someone you wanted."
+    },
+    {
+      "tier": "deep",
+      "theme": "love",
+      "text": "Tell us about a time you loved someone more than they loved you. What did it teach you?"
+    },
+    {
+      "tier": "deep",
+      "theme": "dreams",
+      "text": "Tell us about the kind of closeness you're still hoping to find."
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about a wall you put up in relationships that you know you need to lower."
+    },
+    {
+      "tier": "deep",
+      "theme": "values",
+      "text": "Tell us about the moment you understood what you actually need to feel safe with someone."
+    },
+    {
+      "tier": "deep",
+      "theme": "love",
+      "text": "Tell us about a person you think about more than you'd like to admit. What keeps them there?"
     }
   ],
   "deep": [
@@ -337,6 +429,98 @@
       "target_type": "everyone",
       "wildcard": true,
       "text": "Everyone: tell us about something that scares you that you're moving toward anyway."
+    },
+    {
+      "tier": "warmup",
+      "theme": "joy",
+      "text": "Tell us about something small that brought you real peace this week. Paint the moment for us."
+    },
+    {
+      "tier": "warmup",
+      "theme": "roots",
+      "text": "Tell us about a place from your childhood that still feels like home. Take us there."
+    },
+    {
+      "tier": "warmup",
+      "theme": "dreams",
+      "text": "Tell us about a quiet dream you're slowly building toward right now."
+    },
+    {
+      "tier": "warmup",
+      "theme": "values",
+      "text": "Tell us about a person who shaped who you are. How did they leave their mark?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "joy",
+      "text": "Tell us about the last thing that made you laugh until it hurt. What was going on?"
+    },
+    {
+      "tier": "open",
+      "theme": "values",
+      "text": "Tell us about a belief you outgrew. What was the moment it stopped fitting?"
+    },
+    {
+      "tier": "open",
+      "theme": "dreams",
+      "text": "Tell us about a version of your life you sometimes wish you'd chosen. What draws you to it?"
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about a season that nearly broke you. What got you through it?"
+    },
+    {
+      "tier": "open",
+      "theme": "love",
+      "text": "Tell us about the last time someone understood you without you having to explain. What did they catch?"
+    },
+    {
+      "tier": "open",
+      "theme": "roots",
+      "text": "Tell us about something you inherited from your family that you're proud to carry."
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about a fear that runs more of your life than you'd like. Where did it start?"
+    },
+    {
+      "tier": "open",
+      "theme": "values",
+      "target_type": "everyone",
+      "wildcard": true,
+      "text": "Everyone: name one thing you're working on about yourself right now, and why it matters."
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about a regret you're still learning to make peace with."
+    },
+    {
+      "tier": "deep",
+      "theme": "love",
+      "text": "Tell us about a goodbye you never got to say. What would you say now?"
+    },
+    {
+      "tier": "deep",
+      "theme": "dreams",
+      "text": "Tell us about the person you're quietly hoping to become. What's the first step?"
+    },
+    {
+      "tier": "deep",
+      "theme": "values",
+      "text": "Tell us about a time you chose honesty even though it cost you something."
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about a part of yourself you've hidden because you feared how it would be received."
+    },
+    {
+      "tier": "deep",
+      "theme": "roots",
+      "text": "Tell us about someone you forgave, or are still trying to. What has that been like?"
     }
   ],
   "chaotic": [
@@ -504,6 +688,101 @@
       "target_type": "everyone",
       "wildcard": true,
       "text": "Everyone: tell us about a dream you'd start tonight if money didn't exist."
+    },
+    {
+      "tier": "warmup",
+      "theme": "joy",
+      "text": "Tell us about a nickname you've had that you'll never live down. How did you get it?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "struggles",
+      "text": "Tell us about the last time you embarrassed yourself in public. Spare no detail."
+    },
+    {
+      "tier": "warmup",
+      "theme": "roots",
+      "text": "Tell us about the weirdest family tradition you grew up with. How did it start?"
+    },
+    {
+      "tier": "warmup",
+      "theme": "joy",
+      "text": "Tell us about your most irrational fear. When did it last get the better of you?"
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about a lie you told that completely spiraled out of control."
+    },
+    {
+      "tier": "open",
+      "theme": "joy",
+      "text": "Tell us about the pettiest thing you've ever done. We're not judging. Okay, a little."
+    },
+    {
+      "tier": "open",
+      "theme": "values",
+      "text": "Tell us about a wildly specific hill you will absolutely die on."
+    },
+    {
+      "tier": "open",
+      "theme": "struggles",
+      "text": "Tell us about a time you got caught doing something you swore nobody would find out."
+    },
+    {
+      "tier": "open",
+      "theme": "love",
+      "text": "Tell us about the most chaotic crush story you have. How did it end?"
+    },
+    {
+      "tier": "open",
+      "theme": "dreams",
+      "text": "Tell us about the most ridiculous thing you'd do if money and shame didn't exist."
+    },
+    {
+      "tier": "open",
+      "theme": "joy",
+      "text": "Tell us about the dumbest thing you've ever cried about. Take us through it."
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about a decision you made on pure impulse that actually changed something."
+    },
+    {
+      "tier": "deep",
+      "theme": "values",
+      "text": "Tell us about a time chaos in your life accidentally turned into the best thing."
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about the closest call you've ever had. How did you walk away from it?"
+    },
+    {
+      "tier": "deep",
+      "theme": "roots",
+      "text": "Tell us about the most rebellious thing you did growing up that your family still doesn't know."
+    },
+    {
+      "tier": "deep",
+      "theme": "love",
+      "text": "Tell us about a time you completely humiliated yourself for someone you liked."
+    },
+    {
+      "tier": "deep",
+      "theme": "dreams",
+      "text": "Tell us about a secret ambition so big it almost feels silly to say out loud."
+    },
+    {
+      "tier": "deep",
+      "theme": "struggles",
+      "text": "Tell us about the wildest risk you've ever taken. Would you do it again?"
+    },
+    {
+      "tier": "deep",
+      "theme": "joy",
+      "text": "Tell us about a night that got gloriously out of hand. Where did it end up?"
     }
   ]
 }
