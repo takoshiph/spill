@@ -26,7 +26,7 @@ export default function JoinRoom() {
 
       const playerId = uid()
       const { error } = await supabase.from('players')
-        .insert({ id: playerId, room_id: room.id, name, email, seat: nextSeat, connected: true })
+        .insert({ id: playerId, room_id: room.id, name, seat: nextSeat, connected: true })
       if (error) throw error
 
       setSession({ playerId, roomId: room.id, name })

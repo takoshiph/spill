@@ -21,7 +21,7 @@ export default function CreateRoom() {
         .select().single()
       if (rErr) throw rErr
       const { error: pErr } = await supabase.from('players')
-        .insert({ id: hostId, room_id: room.id, name, email, seat: 0, connected: true })
+        .insert({ id: hostId, room_id: room.id, name, seat: 0, connected: true })
       if (pErr) throw pErr
       setSession({ playerId: hostId, roomId: room.id, name })
       subscribeEmail({ email, name, consent })

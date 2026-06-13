@@ -220,7 +220,7 @@ export default function Game({ room, players, me, isHost, playerId, online }) {
               <span className="fu-invite">{inviteText}</span>
             </div>
           ) : (
-            <div className="listen-label"><span className="sub">Listen in — react when it moves you.</span></div>
+            <div className="listen-label"><span className="sub">Listen in. React when it moves you.</span></div>
           )}
         </div>
       )}

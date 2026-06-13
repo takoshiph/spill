@@ -88,7 +88,7 @@ export default function Lobby({ room, players, isHost, me, playerId }) {
       {players.length < 2 ? (
         <div className="lobby-empty">
           <img className="empty-img" src="/empty-state.png" alt="" />
-          <p className="dim">Nobody’s here yet — share the code above to fill the room.</p>
+          <p className="dim">Nobody’s here yet. Share the code above to fill the room.</p>
         </div>
       ) : (
         <PlayerList players={players} hostId={room.host_id} />

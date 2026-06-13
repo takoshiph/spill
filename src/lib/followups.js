@@ -6,13 +6,13 @@ const INVITES = {
   generic: [
     '{name} just opened up. Ask one question that shows you were really listening.',
     'There’s more to this. Gently ask {name} to take you a little deeper.',
-    'Show {name} it landed — ask one thoughtful question of your own.',
+    'Show {name} it landed. Ask one thoughtful question of your own.',
     'Curiosity is a kindness. Give {name} one good question.',
-    'You’re the only one who can do this — ask {name} something real.',
+    'You’re the only one who can do this. Ask {name} something real.',
   ],
   struggles: [
     'That wasn’t easy to share. Ask {name} one gentle question to honour it.',
-    '{name} trusted the room. Meet them there — ask one caring question.',
+    '{name} trusted the room. Meet them there. Ask one caring question.',
   ],
   dreams: [
     'There’s a dream in there. Ask {name} what it would really mean to them.',
@@ -28,7 +28,7 @@ const INVITES = {
   ],
   joy: [
     'That’s a good story. Ask {name} for the part they left out.',
-    'Keep the spark going — ask {name} one more curious question.',
+    'Keep the spark going. Ask {name} one more curious question.',
   ],
   values: [
     'Ask {name} the question that reveals what really matters to them.',

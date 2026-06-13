@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { clearSession } from '../lib/session'
 
 const PARTING = [
-  'Who in this room surprised you tonight — and will you tell them?',
+  'Who in this room surprised you tonight, and will you tell them?',
   'What’s one thing you heard tonight that you don’t want to forget?',
   'The bravest thing here was honesty. Where else could you use a little more of it this week?',
   'You just learned something new about people you thought you knew. Imagine what’s still left to discover.',
@@ -23,7 +23,7 @@ export default function EndGame({ players }) {
       <img className="endgame-logo" src="/logo.png" alt="Spill! Your Group Chat" />
       <h1>That was real.</h1>
       <p className="dim">
-        {count} of you showed up honestly tonight — that’s rarer than you think,
+        {count} of you showed up honestly tonight. That’s rarer than you think,
         and the room knows each other a little better for it.
       </p>
 

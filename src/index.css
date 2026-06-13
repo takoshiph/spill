@@ -386,7 +386,12 @@ h2 { font-size: 1.3rem; font-weight: 600; }
 .banner { width: 100%; background: #fbeede; border: 1px solid var(--amber); border-radius: 12px; padding: 12px 14px; font-size: 0.85rem; color: var(--espresso); }
 .link { color: var(--terracotta); text-decoration: underline; cursor: pointer; background: none; border: none; font: inherit; }
 a { color: var(--terracotta); }
-.empty-img { width: 66%; max-width: 220px; }
+.empty-img {
+  width: 66%; max-width: 220px;
+  /* feather the edges so the illustration's cream backdrop dissolves into the page */
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 62%, transparent 92%);
+          mask-image: radial-gradient(ellipse at center, #000 62%, transparent 92%);
+}
 
 /* Lonely lobby — empty-state art finds its proper home here */
 .lobby-empty { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; padding: 8px 0; }
