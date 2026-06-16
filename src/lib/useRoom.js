@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback, useRef } from 'react'
 import { supabase } from './supabase'
+import { onResume } from './onResume'
 
 export function useRoom(roomId) {
   const [room, setRoom] = useState(null)
@@ -27,6 +28,13 @@ export function useRoom(roomId) {
       .on('postgres_changes', { event: '*', schema: 'public', table: 'players', filter: `room_id=eq.${roomId}` }, refetch)
       .subscribe()
     return () => { supabase.removeChannel(channel) }
+  }, [roomId, refetch])
+
+  // Mobile: the realtime socket is suspended while the app is backgrounded, so
+  // we miss row updates. Re-fetch the room + players whenever the app resumes.
+  useEffect(() => {
+    if (!roomId || !supabase) return
+    return onResume(refetch)
   }, [roomId, refetch])
 
   return { room, players, loading, error, refetch }

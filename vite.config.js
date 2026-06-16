@@ -13,12 +13,29 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['logo.png', 'card-back.png', 'icons/*.png'],
       // Ship updates instantly: the new service worker skips the "waiting" phase,
-      // claims open pages, and purges stale caches — so a fresh deploy shows on the
-      // next refresh for every player instead of being pinned to an old cached build.
+      // claims open pages, and purges stale caches.
       workbox: {
         clientsClaim: true,
         skipWaiting: true,
         cleanupOutdatedCaches: true,
+        // Cache the Poppins web font so it loads instantly after the first
+        // visit and still works offline (PWA).
+        runtimeCaching: [
+          {
+            urlPattern: ({ url }) => url.origin === 'https://fonts.googleapis.com',
+            handler: 'StaleWhileRevalidate',
+            options: { cacheName: 'google-fonts-stylesheets' },
+          },
+          {
+            urlPattern: ({ url }) => url.origin === 'https://fonts.gstatic.com',
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-webfonts',
+              expiration: { maxEntries: 20, maxAgeSeconds: 60 * 60 * 24 * 365 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+        ],
       },
       manifest: {
         name: 'Spill! Your Group Chat',
