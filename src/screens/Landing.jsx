@@ -6,8 +6,8 @@ export default function Landing() {
   return (
     <div className="screen center">
       <div className="spacer" />
-      <div className="hero landing-enter">
-        <Logo />
+      <div className="hero-light landing-enter">
+        <Logo size={264} />
         <p className="tagline">Every secret has a group chat.</p>
       </div>
       <div className="stack landing-enter delay-1" style={{ marginTop: 22 }}>

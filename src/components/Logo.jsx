@@ -1,10 +1,10 @@
-// Width is governed by .brand-logo in index.css (single source of truth).
-// Pass `size` only to override for a specific placement.
+// Light home logo (transparent PNG) — sits directly on the cream page.
+// Width is governed by .brand-logo in index.css; pass `size` to override.
 export default function Logo({ size }) {
   return (
     <img
       className="brand-logo"
-      src="/logo.png"
+      src="/logo-light.png"
       alt="Spill! Your Group Chat"
       style={size ? { width: size } : undefined}
     />
