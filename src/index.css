@@ -55,7 +55,7 @@ body {
   width: 100%;
 }
 .brand-logo {
-  width: 264px; max-width: 80%; height: auto; display: block;
+  width: 300px; max-width: 86%; height: auto; display: block;
   animation: floatLogo 5.5s ease-in-out 1.7s infinite;
 }
 /* soft warm glow behind the logo for cinematic depth */
@@ -83,12 +83,16 @@ body {
 }
 .home-steps i { color: var(--amber); font-style: normal; }
 
-/* Landing entrance — staggered cascade, fires as the splash lifts */
+/* Home logo "continuation" entrance — scales up as the splash badge dissolves */
+.logo-enter { opacity: 0; animation: logoRise 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; animation-delay: 1.05s; }
+@keyframes logoRise { from { opacity: 0; transform: scale(0.82); } to { opacity: 1; transform: scale(1); } }
+
+/* Landing text — staggered cascade after the logo settles */
 .landing-enter { opacity: 0; animation: riseIn 0.6s ease forwards; animation-delay: 1.2s; }
-.landing-enter.delay-1 { animation-delay: 1.36s; }
-.landing-enter.delay-2 { animation-delay: 1.50s; }
-.landing-enter.delay-3 { animation-delay: 1.64s; }
-.landing-enter.delay-4 { animation-delay: 1.78s; }
+.landing-enter.delay-1 { animation-delay: 1.50s; }
+.landing-enter.delay-2 { animation-delay: 1.64s; }
+.landing-enter.delay-3 { animation-delay: 1.78s; }
+.landing-enter.delay-4 { animation-delay: 1.92s; }
 @keyframes riseIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 
 h1 { font-size: 1.8rem; font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; }
@@ -382,15 +386,25 @@ h2 { font-size: 1.3rem; font-weight: 600; }
 .sheet .sheet-sub { color: var(--text-dim); font-size: 0.95rem; margin-top: -4px; }
 .sheet .end-link { text-align: center; margin-top: 2px; }
 
-/* Splash overlay — timing is driven by Splash.jsx; CSS only defines the fade itself */
+/* Splash overlay — a circular badge pops + bounces in, holds, then dissolves into the home */
 .splash {
   position: fixed; inset: 0; z-index: 50; background: var(--hero-bg);
   display: flex; align-items: center; justify-content: center;
-  opacity: 1; transition: opacity 0.52s ease;
+  opacity: 1; transition: opacity 0.5s ease;
 }
 .splash.leaving { opacity: 0; }
-.splash img { width: 100%; height: 100%; object-fit: contain; max-width: 460px; transition: transform 0.6s ease; }
-.splash.leaving img { transform: scale(1.05); }
+.splash-badge {
+  width: min(46vw, 190px); height: auto; display: block;
+  animation: badgePop 0.8s cubic-bezier(0.2, 0.9, 0.25, 1.4) both;
+}
+.splash.leaving .splash-badge { transform: scale(1.06); transition: transform 0.5s ease; }
+@keyframes badgePop {
+  0%   { transform: scale(0);    opacity: 0; }
+  55%  { transform: scale(1.12); opacity: 1; }
+  72%  { transform: scale(0.95); }
+  86%  { transform: scale(1.03); }
+  100% { transform: scale(1); }
+}
 
 /* Nudge feedback (waiting room) */
 .nudge-flash {
@@ -477,11 +491,13 @@ a { color: var(--terracotta); }
   .endgame .reveal,
   .brand-logo,
   .home-glow,
-  .splash.leaving img { animation: none !important; }
+  .splash-badge,
+  .logo-enter { animation: none !important; }
 
   .shuffle { transition: opacity 0.3s ease; }
   .shuffle.lift { transform: none; }              /* fade only, no lift */
-  .splash.leaving img { transform: none; }        /* fade only, no zoom */
+  .splash-badge { transform: none; opacity: 1; }  /* show immediately, no pop */
+  .logo-enter { opacity: 1; transform: none; }
   .bubble { transform: none; opacity: 1; }        /* reactions appear without flying */
   .landing-enter { animation-duration: 0.01ms; }  /* show immediately, no rise */
   .endgame-photo { opacity: 1; filter: none; transform: rotate(-1.6deg); } /* show, no develop */

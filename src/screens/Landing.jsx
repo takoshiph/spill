@@ -7,9 +7,9 @@ export default function Landing() {
     <div className="screen center">
       <div className="spacer" />
 
-      <div className="hero-light landing-enter">
+      <div className="hero-light logo-enter">
         <span className="home-glow" aria-hidden="true" />
-        <Logo size={264} />
+        <Logo size={300} />
         <p className="tagline">Every secret has a group chat.</p>
       </div>
 
