@@ -12,6 +12,14 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['logo.png', 'card-back.png', 'icons/*.png'],
+      // Ship updates instantly: the new service worker skips the "waiting" phase,
+      // claims open pages, and purges stale caches — so a fresh deploy shows on the
+      // next refresh for every player instead of being pinned to an old cached build.
+      workbox: {
+        clientsClaim: true,
+        skipWaiting: true,
+        cleanupOutdatedCaches: true,
+      },
       manifest: {
         name: 'Spill! Your Group Chat',
         short_name: 'Spill!',
