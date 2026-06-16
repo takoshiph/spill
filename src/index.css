@@ -93,7 +93,7 @@ body {
 
 .logo-stage {
   position: relative; z-index: 41;
-  transform: translateY(17vh) scale(1.55);
+  transform: translateY(17vh) scale(1.12);
   transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0; animation: introIn 0.7s ease 0.2s both;
 }
