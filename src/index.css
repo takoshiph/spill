@@ -32,7 +32,7 @@ body {
   background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
-  overscroll-behavior: none;
+  overscroll-behavior: none; overflow-x: hidden;
 }
 
 #root { display: flex; flex-direction: column; min-height: 100%; }
@@ -55,7 +55,7 @@ body {
   width: 100%;
 }
 .brand-logo {
-  width: 300px; max-width: 86%; height: auto; display: block;
+  width: 330px; max-width: 90%; height: auto; display: block;
   animation: floatLogo 5.5s ease-in-out 2.8s infinite;
 }
 /* soft warm glow behind the logo for cinematic depth */
@@ -93,7 +93,7 @@ body {
 
 .logo-stage {
   position: relative; z-index: 41;
-  transform: translateY(16vh) scale(1.2);
+  transform: translateY(17vh) scale(1.55);
   transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0; animation: introIn 0.7s ease 0.2s both;
 }
@@ -108,6 +108,32 @@ body {
 .home.is-home .reveal-late.d3 { animation-delay: 0.58s; }
 .home.is-home .reveal-late.d4 { animation-delay: 0.70s; }
 @keyframes riseIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+/* Typewriter hype line */
+.type .caret {
+  display: inline-block; width: 2px; height: 1em; margin-left: 1px;
+  background: var(--burnt-orange); vertical-align: text-bottom;
+  animation: blink 0.9s steps(1) infinite;
+}
+.type.done .caret { opacity: 0; animation: none; }
+@keyframes blink { 50% { opacity: 0; } }
+.intro-rest { opacity: 0; transition: opacity 0.5s ease; }
+.intro-rest.show { opacity: 1; }
+
+/* Steps pop in 1 - 2 - 3 */
+.pop { opacity: 0; }
+.home.is-home .pop { animation: popIn 0.5s cubic-bezier(0.2, 1.3, 0.4, 1) both; }
+.home.is-home .pop.s1 { animation-delay: 0.55s; }
+.home.is-home .pop.s2 { animation-delay: 0.72s; }
+.home.is-home .pop.s3 { animation-delay: 0.89s; }
+@keyframes popIn { 0% { opacity: 0; transform: scale(0.4); } 60% { opacity: 1; transform: scale(1.12); } 100% { transform: scale(1); } }
+
+/* Buttons drop into place — Host first, then Join */
+.drop-in { opacity: 0; }
+.home.is-home .drop-in { animation: dropIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.home.is-home .drop-in.b1 { animation-delay: 1.10s; }
+.home.is-home .drop-in.b2 { animation-delay: 1.40s; }
+@keyframes dropIn { from { opacity: 0; transform: translateY(-36px); } to { opacity: 1; transform: translateY(0); } }
 
 h1 { font-size: 1.8rem; font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; }
 h2 { font-size: 1.3rem; font-weight: 600; }
@@ -488,13 +514,19 @@ a { color: var(--terracotta); }
   .brand-logo,
   .home-glow,
   .logo-stage,
-  .reveal-late { animation: none !important; }
+  .reveal-late,
+  .pop,
+  .drop-in,
+  .type .caret { animation: none !important; }
 
   .shuffle { transition: opacity 0.3s ease; }
   .shuffle.lift { transform: none; }              /* fade only, no lift */
   .bubble { transform: none; opacity: 1; }        /* reactions appear without flying */
   .logo-stage { transform: none; opacity: 1; }    /* logo sits in place, no glide */
   .reveal-late { opacity: 1; }
+  .pop, .drop-in { opacity: 1; transform: none; }
+  .type .caret { display: none; }
+  .intro-rest { opacity: 1; }
   .intro-veil { transition: opacity 0.3s ease; }
   .endgame-photo { opacity: 1; filter: none; transform: rotate(-1.6deg); } /* show, no develop */
   .endgame .reveal { opacity: 1; transform: none; }
