@@ -20,21 +20,24 @@ export default function EndGame({ players }) {
 
   return (
     <div className="screen center endgame">
-      <img className="endgame-logo" src="/logo.png" alt="Spill! Your Group Chat" />
-      <h1>That was real.</h1>
-      <p className="dim">
+      <div className="endgame-photo">
+        <img src="/group-photo.png" alt="Your group, a little closer than before" />
+      </div>
+
+      <h1 className="reveal d1">That was real.</h1>
+      <p className="dim reveal d2">
         {count} of you showed up honestly tonight. That’s rarer than you think,
         and the room knows each other a little better for it.
       </p>
 
-      <div className="parting">
+      <div className="parting reveal d3">
         <span className="parting-label">Before you go…</span>
         <p className="parting-q">{parting}</p>
       </div>
 
       <div className="spacer" />
-      <button className="btn btn-primary" onClick={leave}>Back to start</button>
-      <p className="credit">Built by someone who really wanted you to have nights like this. 🧡</p>
+      <button className="btn btn-primary reveal d4" onClick={leave}>Back to start</button>
+      <p className="credit reveal d4">Built by someone who really wanted you to have nights like this. 🧡</p>
     </div>
   )
 }
