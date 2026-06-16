@@ -50,15 +50,45 @@ body {
 
 /* Light home — the logo (transparent PNG) sits directly on the cream page, no dark panel */
 .hero-light {
+  position: relative;
   display: flex; flex-direction: column; align-items: center; gap: 6px;
   width: 100%;
 }
-.brand-logo { width: 264px; max-width: 80%; height: auto; display: block; }
+.brand-logo {
+  width: 264px; max-width: 80%; height: auto; display: block;
+  animation: floatLogo 5.5s ease-in-out 1.7s infinite;
+}
+/* soft warm glow behind the logo for cinematic depth */
+.home-glow {
+  position: absolute; top: 42%; left: 50%; width: 300px; height: 300px;
+  transform: translate(-50%, -50%); border-radius: 50%; z-index: -1; pointer-events: none;
+  background: radial-gradient(circle, rgba(199, 91, 42, 0.16), rgba(186, 117, 23, 0.06) 45%, transparent 70%);
+  filter: blur(6px); animation: glowBreathe 6.5s ease-in-out infinite;
+}
+@keyframes floatLogo { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+@keyframes glowBreathe {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.08); }
+}
 
-/* Landing entrance — fires as the splash lifts (delayed so it isn't hidden beneath it) */
+/* Home intro copy + gameplay steps */
+.home-intro {
+  max-width: 360px; text-align: center; color: var(--text-dim);
+  font-size: 0.97rem; line-height: 1.5; margin-top: 16px;
+}
+.home-intro b { color: var(--espresso); font-weight: 700; }
+.home-steps {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+  gap: 9px; margin-top: 12px; font-weight: 600; font-size: 0.9rem; color: var(--terracotta);
+}
+.home-steps i { color: var(--amber); font-style: normal; }
+
+/* Landing entrance — staggered cascade, fires as the splash lifts */
 .landing-enter { opacity: 0; animation: riseIn 0.6s ease forwards; animation-delay: 1.2s; }
-.landing-enter.delay-1 { animation-delay: 1.34s; }
-.landing-enter.delay-2 { animation-delay: 1.48s; }
+.landing-enter.delay-1 { animation-delay: 1.36s; }
+.landing-enter.delay-2 { animation-delay: 1.50s; }
+.landing-enter.delay-3 { animation-delay: 1.64s; }
+.landing-enter.delay-4 { animation-delay: 1.78s; }
 @keyframes riseIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 
 h1 { font-size: 1.8rem; font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; }
@@ -445,6 +475,8 @@ a { color: var(--terracotta); }
   .room-spinner,
   .endgame-photo,
   .endgame .reveal,
+  .brand-logo,
+  .home-glow,
   .splash.leaving img { animation: none !important; }
 
   .shuffle { transition: opacity 0.3s ease; }
