@@ -4,7 +4,6 @@ import CreateRoom from './screens/CreateRoom'
 import JoinRoom from './screens/JoinRoom'
 import Room from './screens/Room'
 import Privacy from './screens/Privacy'
-import Splash from './components/Splash'
 import { isConfigured } from './lib/supabase'
 
 function ConfigBanner() {
@@ -20,7 +19,6 @@ function ConfigBanner() {
 export default function App() {
   return (
     <>
-      <Splash />
       <ConfigBanner />
       <Routes>
         <Route path="/" element={<Landing />} />
