@@ -50,8 +50,8 @@ Running list of things intentionally deferred, so we don't lose them.
 
 ## Mobile review — deferred for later (saved 2026-06-13)
 Most users are on mobile. Prioritized improvements (NOT yet implemented; user said save for now):
-- [ ] **HIGH — Poppins font never loads.** CSS references 'Poppins' but no <link>/@font-face/@import anywhere → every device falls back to system font. Self-host Poppins (offline-friendly for PWA) or Google Fonts preconnect + font-display:swap.
-- [ ] **HIGH — No resync on phone sleep/background.** usePresence/useRoom subscribe once; iOS suspends WebSocket on background. On return, presence may have dropped (ready-gate stalls) + missed room updates (stale screen). Add visibilitychange/online listener → refetch room+players and re-subscribe/re-track.
+- [x] **HIGH — Poppins font loaded** (2026-06-13): index.html preconnect + Google Fonts <link> (display=swap), cached in the service worker (runtimeCaching) for offline/instant. Was: CSS references 'Poppins' but no <link>/@font-face/@import anywhere → every device falls back to system font. Self-host Poppins (offline-friendly for PWA) or Google Fonts preconnect + font-display:swap.
+- [x] **HIGH — Resync on resume done** (2026-06-13): new src/lib/onResume.js (visibilitychange/focus/online) → useRoom re-fetches room+players, usePresence re-tracks. Was: usePresence/useRoom subscribe once; iOS suspends WebSocket on background. On return, presence may have dropped (ready-gate stalls) + missed room updates (stale screen). Add visibilitychange/online listener → refetch room+players and re-subscribe/re-track.
 - [ ] **MED — Pinch-zoom disabled** (maximum-scale=1.0, user-scalable=no) → accessibility regression; consider removing.
 - [ ] **MED — Low contrast** `--text-dim #8a7765` on cream ≈3.3:1 (<AA 4.5:1) for .dim/.muted. Darken ~#6f5c4a.
 - [ ] **MED — Tap target** `.game-menu-btn` 40×40 < 44×44 recommended.
