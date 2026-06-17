@@ -204,6 +204,7 @@ export default function Game({ room, players, me, isHost, playerId, online, refe
           >
             <div className="face face-back" />
             <div className={`face face-front${isWild ? ' wildcard' : ''}`}>
+              <span className="card-shine" />
               <span className="pc-top">{isWild ? 'To the group' : vibe?.name}</span>
               <p className="pc-text">{card.text}</p>
               <span className="pc-mark">Spill!</span>

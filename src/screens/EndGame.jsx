@@ -1,6 +1,8 @@
 import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { clearSession } from '../lib/session'
+import SplitText from '../components/SplitText'
+import Confetti from '../components/Confetti'
 
 const PARTING = [
   'Who in this room surprised you tonight, and will you tell them?',
@@ -16,19 +18,18 @@ export default function EndGame({ players, online }) {
   const leave = () => { clearSession(); nav('/') }
   const parting = useMemo(() => PARTING[Math.floor(Math.random() * PARTING.length)], [])
 
-  // Count who was actually here — presence first, then the live DB flag — so
-  // reconnect duplicates and ghost rows don't inflate the number.
   const count = (online && online.size)
     ? online.size
     : (players.filter((p) => p.connected).length || players.length)
 
   return (
     <div className="screen center endgame">
+      <Confetti />
       <div className="endgame-photo">
         <img src="/group-photo.png" alt="Your group, a little closer than before" />
       </div>
 
-      <h1 className="reveal d1">That was real.</h1>
+      <h1 className="endgame-headline"><SplitText text="That was real." delay={950} stagger={120} /></h1>
       <p className="dim reveal d2">
         {count} of you showed up honestly tonight. That’s rarer than you think,
         and the room knows each other a little better for it.

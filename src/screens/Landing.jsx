@@ -6,12 +6,12 @@ export default function Landing() {
   const nav = useNavigate()
   const [shown, setShown] = useState(false)
   useEffect(() => {
-    // hold the logo on the dark splash, then glide it home and reveal the page
     const t = setTimeout(() => setShown(true), 1300)
     return () => clearTimeout(t)
   }, [])
   return (
     <div className={`screen center home ${shown ? 'is-home' : 'is-intro'}`}>
+      <div className="home-aurora" aria-hidden="true"><span /><span /><span /></div>
       <div className="intro-veil" aria-hidden="true" />
       <div className="spacer" />
 
@@ -21,7 +21,7 @@ export default function Landing() {
         <p className="tagline reveal-late d1">Every secret has a group chat.</p>
       </div>
 
-      <p className="home-intro reveal-late d2">
+      <p className="home-intro reveal-late blur d2">
         <b>Get your group past small talk.</b> A no-login party game that brings
         couples, friends, and total strangers closer in a single night.
       </p>

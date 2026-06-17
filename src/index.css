@@ -110,6 +110,44 @@ body {
 .home.is-home .reveal-late.d5 { animation-delay: 1.10s; }  /* Join — last */
 @keyframes riseIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 
+/* ===== ReactBits-style flourishes ===== */
+/* Ambient home aurora — slow drifting brand blobs behind the page */
+.home-aurora { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.home-aurora span { position: absolute; border-radius: 50%; filter: blur(60px); }
+.home-aurora span:nth-child(1) { width: 56vw; height: 56vw; left: -12vw; top: -8vh;  background: rgba(199, 91, 42, 0.20); animation: auroraA 17s ease-in-out infinite; }
+.home-aurora span:nth-child(2) { width: 48vw; height: 48vw; right: -14vw; top: 22vh; background: rgba(186, 117, 23, 0.16); animation: auroraB 21s ease-in-out infinite; }
+.home-aurora span:nth-child(3) { width: 50vw; height: 50vw; left: 14vw; bottom: -18vh; background: rgba(160, 82, 45, 0.14); animation: auroraC 24s ease-in-out infinite; }
+@keyframes auroraA { 0%,100% { transform: translate(0,0); } 50% { transform: translate(8vw, 6vh); } }
+@keyframes auroraB { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-7vw, -5vh); } }
+@keyframes auroraC { 0%,100% { transform: translate(0,0); } 50% { transform: translate(5vw, -7vh); } }
+
+/* Animated headline — blur-in variant of the reveal */
+.home.is-home .reveal-late.blur { animation-name: riseBlur; }
+@keyframes riseBlur { from { opacity: 0; filter: blur(9px); transform: translateY(10px); } to { opacity: 1; filter: blur(0); transform: none; } }
+
+/* Word-by-word blur-in (SplitText) */
+.split-word { display: inline-block; opacity: 0; filter: blur(8px); transform: translateY(8px); animation: splitIn 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+@keyframes splitIn { to { opacity: 1; filter: blur(0); transform: none; } }
+.endgame-headline { font-size: 1.8rem; font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; }
+
+/* Card shine sweep on reveal */
+.card-shine {
+  position: absolute; top: 0; left: -60%; width: 45%; height: 100%; z-index: 2;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transform: skewX(-18deg); pointer-events: none;
+  animation: cardSweep 0.9s ease 0.55s 1 both;
+}
+@keyframes cardSweep { from { left: -60%; } to { left: 165%; } }
+
+/* Endgame confetti */
+.confetti { position: fixed; inset: 0; z-index: 30; overflow: hidden; pointer-events: none; }
+.confetti-piece { position: absolute; top: -16px; border-radius: 2px; opacity: 0; animation: confettiFall linear both; }
+@keyframes confettiFall {
+  0%   { opacity: 0; transform: translateY(-12px) translateX(0) rotate(0deg); }
+  12%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(108vh) translateX(var(--drift)) rotate(var(--rot)); }
+}
+
 h1 { font-size: 1.8rem; font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; }
 h2 { font-size: 1.3rem; font-weight: 600; }
 .tagline { color: var(--burnt-orange); font-style: italic; font-size: 1.02rem; }
@@ -498,13 +536,19 @@ a { color: var(--terracotta); }
   .brand-logo,
   .home-glow,
   .logo-stage,
-  .reveal-late { animation: none !important; }
+  .reveal-late,
+  .home-aurora span,
+  .split-word,
+  .card-shine,
+  .confetti-piece { animation: none !important; }
 
   .shuffle { transition: opacity 0.3s ease; }
   .shuffle.lift { transform: none; }              /* fade only, no lift */
   .bubble { transform: none; opacity: 1; }        /* reactions appear without flying */
   .logo-stage { transform: none; opacity: 1; }    /* logo sits in place, no glide */
   .reveal-late { opacity: 1; }
+  .split-word { opacity: 1; filter: none; transform: none; }
+  .confetti { display: none; }
   .intro-veil { transition: opacity 0.3s ease; }
   .endgame-photo { opacity: 1; filter: none; transform: rotate(-1.6deg); } /* show, no develop */
   .endgame .reveal { opacity: 1; transform: none; }
