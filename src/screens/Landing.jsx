@@ -2,8 +2,8 @@ import { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Logo from '../components/Logo'
 
-const HEAD = 'Get your group past small talk.'
-const REST = ' A no-login party game that brings everyone closer in one night.'
+const HEAD = 'Acquaintances become friends over real stories, not small talk.'
+const REST = ' Spill is the party game that gets them out.'
 const FULL = HEAD + REST
 const REDUCED = typeof window !== 'undefined' && window.matchMedia
   ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
