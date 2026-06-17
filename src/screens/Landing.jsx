@@ -34,9 +34,11 @@ export default function Landing() {
     return () => ts.forEach(clearTimeout)
   }, [shown])
 
-  // typewriter once the hype's step fires
+  // typewriter — runs ONCE when the hype's step fires (one-shot flag, so later
+  // steps advancing never restart it)
+  const typeOn = shown && step >= 2 && !REDUCED
   useEffect(() => {
-    if (step < 2 || REDUCED) return
+    if (!typeOn) return
     let i = 0
     const iv = setInterval(() => {
       i += 1
@@ -44,7 +46,7 @@ export default function Landing() {
       if (i >= HYPE.length) clearInterval(iv)
     }, 40)
     return () => clearInterval(iv)
-  }, [step])
+  }, [typeOn])
 
   return (
     <div className={`screen center home ${shown ? 'is-home' : 'is-intro'}`}>
