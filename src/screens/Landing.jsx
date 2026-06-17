@@ -68,9 +68,9 @@ export default function Landing() {
       <div className="home-steps">
         <span className={`step-pop ${typingDone ? 'pop-in' : ''}`} style={{ animationDelay: '0ms' }}>Pick a vibe</span>
         <i className={`step-pop ${typingDone ? 'pop-in' : ''}`} style={{ animationDelay: '0ms' }}>·</i>
-        <span className={`step-pop ${typingDone ? 'pop-in' : ''}`} style={{ animationDelay: '140ms' }}>Draw a card</span>
-        <i className={`step-pop ${typingDone ? 'pop-in' : ''}`} style={{ animationDelay: '140ms' }}>·</i>
-        <span className={`step-pop ${typingDone ? 'pop-in' : ''}`} style={{ animationDelay: '280ms' }}>Spill the story</span>
+        <span className={`step-pop ${typingDone ? 'pop-in' : ''}`} style={{ animationDelay: '320ms' }}>Draw a card</span>
+        <i className={`step-pop ${typingDone ? 'pop-in' : ''}`} style={{ animationDelay: '320ms' }}>·</i>
+        <span className={`step-pop ${typingDone ? 'pop-in' : ''}`} style={{ animationDelay: '640ms' }}>Spill the story</span>
       </div>
 
       <div className="stack" style={{ marginTop: 18 }}>
