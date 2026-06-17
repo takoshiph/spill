@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import Logo from '../components/Logo'
 
 const HEAD = 'Get your group past small talk.'
-const REST = ' A no-login party game that brings couples, friends, and total strangers closer in a single night.'
+const REST = ' A no-login party game that brings everyone closer in one night.'
 const FULL = HEAD + REST
 const REDUCED = typeof window !== 'undefined' && window.matchMedia
   ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
