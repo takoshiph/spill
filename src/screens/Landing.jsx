@@ -17,7 +17,7 @@ export default function Landing() {
 
       <div className="hero-light">
         <span className="home-glow" aria-hidden="true" />
-        <div className="logo-stage"><Logo size={330} /></div>
+        <div className="logo-stage"><Logo size={250} /></div>
         <p className="tagline reveal-late d1">Every secret has a group chat.</p>
       </div>
 
