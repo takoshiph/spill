@@ -11,9 +11,8 @@ import EndGame from './EndGame'
 export default function Room() {
   const { roomId } = useParams()
   const { playerId } = getSession()
-  const { room, players, loading } = useRoom(roomId)
+  const { room, players, loading, refetch } = useRoom(roomId)
   const me = players.find((p) => p.id === playerId)
-
   const online = usePresence(roomId, playerId, me?.name)
 
   useEffect(() => {
@@ -22,8 +21,7 @@ export default function Room() {
     return () => { supabase.from('players').update({ connected: false }).eq('id', playerId) }
   }, [playerId, roomId])
 
-  // Host migration: if the host goes offline, the lowest-seat online player
-  // claims host so Start / Skip / End never get stranded.
+  // Host migration: lowest-seat online player claims host if the host drops.
   useEffect(() => {
     if (!supabase || !room || online.size === 0) return
     if (online.has(room.host_id)) return
@@ -44,8 +42,7 @@ export default function Room() {
   )
   if (!room) return <div className="screen center"><h2>Room not found</h2><a href="/">Back to start</a></div>
 
-  const ctx = { room, players, me, isHost: room.host_id === playerId, playerId, online }
-
+  const ctx = { room, players, me, isHost: room.host_id === playerId, playerId, online, refetch }
   if (room.status === 'ended') return <EndGame {...ctx} />
   if (room.status === 'playing') return <Game {...ctx} />
   return <Lobby {...ctx} />

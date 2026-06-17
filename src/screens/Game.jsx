@@ -28,7 +28,7 @@ function flingFor(i) {
   return { x: Math.cos(ang) * VH, y: Math.sin(ang) * VH, rotate: (i % 2 ? 1 : -1) * (35 + ((i * 17) % 45)) }
 }
 
-export default function Game({ room, players, me, isHost, playerId, online }) {
+export default function Game({ room, players, me, isHost, playerId, online, refetch }) {
   const nav = useNavigate()
   const deck = useMemo(() => buildDeck(room.vibe, room.code), [room.vibe, room.code])
 
@@ -49,7 +49,7 @@ export default function Game({ room, players, me, isHost, playerId, online }) {
     [players, onlineSet]
   )
 
-  const { setReady, draw, maybeAdvance, forceNext, endGame } = useGameActions(room, livePlayers, deck.length)
+  const { setReady, draw, maybeAdvance, forceNext, endGame } = useGameActions(room, livePlayers, deck.length, refetch)
 
   useEffect(() => {
     // shuffle plays, then the stack lifts toward the deck position, then hand off
@@ -147,6 +147,7 @@ export default function Game({ room, players, me, isHost, playerId, online }) {
   return (
     <div className="game-screen">
       <button className="game-menu-btn" onClick={() => setSheet(true)} aria-label="Menu">⋯</button>
+      {isHost && <div className="game-code">Code {room.code}</div>}
 
       {room.phase === 'draw' && (
         <>
@@ -253,6 +254,7 @@ export default function Game({ room, players, me, isHost, playerId, online }) {
               <span>{vibe?.name}</span>
               <span>{room.card_index >= 0 ? `Card ${room.card_index + 1} of ${deck.length}` : `${deck.length} cards`}</span>
             </div>
+            <div className="sheet-code">Room code: <b>{room.code}</b></div>
             {isHost ? (
               confirmEnd ? (
                 <>

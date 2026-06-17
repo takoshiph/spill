@@ -11,12 +11,16 @@ const PARTING = [
   'Somebody opened up first so the rest of you could. Be that person more often.',
 ]
 
-export default function EndGame({ players }) {
+export default function EndGame({ players, online }) {
   const nav = useNavigate()
   const leave = () => { clearSession(); nav('/') }
   const parting = useMemo(() => PARTING[Math.floor(Math.random() * PARTING.length)], [])
 
-  const count = players.length
+  // Count who was actually here — presence first, then the live DB flag — so
+  // reconnect duplicates and ghost rows don't inflate the number.
+  const count = (online && online.size)
+    ? online.size
+    : (players.filter((p) => p.connected).length || players.length)
 
   return (
     <div className="screen center endgame">

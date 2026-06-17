@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import JoinForm from '../components/JoinForm'
 import { supabase, isConfigured } from '../lib/supabase'
-import { setSession } from '../lib/session'
+import { getSession, setSession } from '../lib/session'
 import { subscribeEmail } from '../lib/email'
 import { uid } from '../lib/uid'
 
@@ -20,6 +20,19 @@ export default function JoinRoom() {
       const { data: room } = await supabase.from('rooms').select('*').eq('code', code).maybeSingle()
       if (!room) throw new Error('No room with that code.')
       if (room.status === 'ended') throw new Error('That game has already ended.')
+
+      // Reconnect: if this device already has a player in THIS room, reuse that
+      // row (same id + seat) instead of creating a duplicate.
+      const sess = getSession()
+      if (sess && sess.roomId === room.id && sess.playerId) {
+        const { data: mine } = await supabase.from('players').select('id').eq('id', sess.playerId).maybeSingle()
+        if (mine) {
+          await supabase.from('players').update({ connected: true, name }).eq('id', sess.playerId)
+          subscribeEmail({ email, name, consent })
+          nav(`/room/${room.id}`)
+          return
+        }
+      }
 
       const { data: existing } = await supabase.from('players').select('seat').eq('room_id', room.id)
       const nextSeat = existing && existing.length ? Math.max(...existing.map((p) => p.seat)) + 1 : 0

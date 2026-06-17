@@ -30,34 +30,45 @@ export function useRoom(roomId) {
     return () => { supabase.removeChannel(channel) }
   }, [roomId, refetch])
 
-  // Mobile: the realtime socket is suspended while the app is backgrounded, so
-  // we miss row updates. Re-fetch the room + players whenever the app resumes.
+  // Re-sync when the app resumes (socket is suspended while backgrounded).
   useEffect(() => {
     if (!roomId || !supabase) return
     return onResume(refetch)
   }, [roomId, refetch])
 
+  // Safety net: some phones (notably iOS Safari) silently drop the realtime
+  // socket, so the screen can get stuck on stale state (e.g. a drawn card never
+  // showing its question). Poll as a fallback so state always catches up.
+  useEffect(() => {
+    if (!roomId || !supabase) return
+    const id = setInterval(refetch, 4000)
+    return () => clearInterval(id)
+  }, [roomId, refetch])
+
   return { room, players, loading, error, refetch }
 }
 
-export function useGameActions(room, livePlayers, deckLength) {
+export function useGameActions(room, livePlayers, deckLength, refetch) {
   const advancing = useRef(false)
+  const sync = useCallback(() => { try { if (refetch) refetch() } catch {} }, [refetch])
 
   const setReady = useCallback(async (playerId, ready) => {
     if (!supabase || !room) return
     await supabase.from('players').update({ ready }).eq('id', playerId)
-  }, [room])
+    sync()
+  }, [room, sync])
 
   const draw = useCallback(async () => {
     if (!supabase || !room || room.phase !== 'draw') return
     const next = room.card_index + 1
     if (next >= deckLength) {
       await supabase.from('rooms').update({ status: 'ended' }).eq('id', room.id)
-      return
+      sync(); return
     }
     await supabase.from('players').update({ ready: false }).eq('room_id', room.id)
     await supabase.from('rooms').update({ card_index: next, phase: 'answer' }).eq('id', room.id)
-  }, [room, deckLength])
+    sync()
+  }, [room, deckLength, sync])
 
   const nextOnlineSeat = useCallback(() => {
     const seats = livePlayers.map((p) => p.seat).sort((a, b) => a - b)
@@ -69,7 +80,6 @@ export function useGameActions(room, livePlayers, deckLength) {
     if (!supabase || !room || advancing.current || room.phase !== 'answer') return
     if (livePlayers.length === 0) return
     if (!livePlayers.every((p) => p.ready)) return
-
     advancing.current = true
     try {
       if (room.card_index + 1 >= deckLength) {
@@ -78,14 +88,13 @@ export function useGameActions(room, livePlayers, deckLength) {
       }
       const nextSeat = nextOnlineSeat()
       if (nextSeat === null) return
-      await supabase.from('rooms')
-        .update({ current_seat: nextSeat, phase: 'draw' })
-        .eq('id', room.id)
+      await supabase.from('rooms').update({ current_seat: nextSeat, phase: 'draw' }).eq('id', room.id)
       await supabase.from('players').update({ ready: false }).eq('room_id', room.id)
     } finally {
       advancing.current = false
+      sync()
     }
-  }, [room, livePlayers, deckLength, nextOnlineSeat])
+  }, [room, livePlayers, deckLength, nextOnlineSeat, sync])
 
   const forceNext = useCallback(async () => {
     if (!supabase || !room) return
@@ -93,20 +102,22 @@ export function useGameActions(room, livePlayers, deckLength) {
     if (nextSeat === null) return
     if (room.phase === 'draw') {
       await supabase.from('rooms').update({ current_seat: nextSeat }).eq('id', room.id)
-      return
+      sync(); return
     }
     if (room.card_index + 1 >= deckLength) {
       await supabase.from('rooms').update({ status: 'ended' }).eq('id', room.id)
-      return
+      sync(); return
     }
     await supabase.from('rooms').update({ current_seat: nextSeat, phase: 'draw' }).eq('id', room.id)
     await supabase.from('players').update({ ready: false }).eq('room_id', room.id)
-  }, [room, deckLength, nextOnlineSeat])
+    sync()
+  }, [room, deckLength, nextOnlineSeat, sync])
 
   const endGame = useCallback(async () => {
     if (!supabase || !room) return
     await supabase.from('rooms').update({ status: 'ended' }).eq('id', room.id)
-  }, [room])
+    sync()
+  }, [room, sync])
 
   return { setReady, draw, maybeAdvance, forceNext, endGame }
 }

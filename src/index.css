@@ -273,6 +273,15 @@ h2 { font-size: 1.3rem; font-weight: 600; }
   box-shadow: var(--shadow);
 }
 .game-menu-btn:active { transform: scale(0.94); }
+/* Host's always-visible room code (so disconnected players can rejoin) */
+.game-code {
+  position: absolute; top: max(16px, env(safe-area-inset-top)); left: 16px; z-index: 22;
+  font-size: 0.74rem; font-weight: 800; letter-spacing: 0.14em; color: var(--text-dim);
+  background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 13px; box-shadow: var(--shadow);
+}
+.sheet-code { text-align: center; color: var(--text-dim); font-size: 0.95rem; }
+.sheet-code b { color: var(--espresso); letter-spacing: 0.2em; font-size: 1.15rem; margin-left: 4px; }
 
 /* Top indicator — whose turn / who is sharing */
 .turn-indicator {
