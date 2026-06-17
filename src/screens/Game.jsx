@@ -136,13 +136,14 @@ export default function Game({ room, players, me, isHost, playerId, online, refe
 
   const sendReaction = (text) => chanRef.current?.send({ type: 'broadcast', event: 'react', payload: { text } })
   const onAction = () => {
-    const next = !me?.ready
-    setReady(playerId, next)
-    if (next && !isMyDraw && !isWild) sendReaction(appreciation)
+    if (me?.ready) return // ready is one-way — can't un-press and stall the group
+    setReady(playerId, true)
+    if (!isMyDraw && !isWild) sendReaction(appreciation)
   }
   const actionLabel = (isMyDraw || isWild)
     ? (me?.ready ? '✓ Done' : 'Done')
     : (me?.ready ? `✓ ${appreciation}` : appreciation)
+  const waitingCount = livePlayers.filter((p) => !p.ready).length
 
   return (
     <div className="game-screen">
@@ -237,12 +238,15 @@ export default function Game({ room, players, me, isHost, playerId, online, refe
           </div>
 
           <div className="ready-zone">
-            <button className={`ready-pill${me?.ready ? ' on' : ''}`} onClick={onAction}>
+            <button className={`ready-pill${me?.ready ? ' on' : ''}`} onClick={onAction} disabled={me?.ready}>
               {actionLabel}
             </button>
             <div className="ready-dots">
               {livePlayers.map((p) => <i key={p.id} className={p.ready ? 'lit' : ''} />)}
             </div>
+            {me?.ready && waitingCount > 0 && (
+              <span className="ready-wait">Waiting on {waitingCount} {waitingCount === 1 ? 'other' : 'others'}…</span>
+            )}
           </div>
         </>
       )}

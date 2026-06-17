@@ -457,6 +457,8 @@ h2 { font-size: 1.3rem; font-weight: 600; }
 .ready-dots { display: flex; gap: 6px; }
 .ready-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--line); transition: background 0.2s ease; }
 .ready-dots i.lit { background: var(--amber); }
+.ready-pill:disabled { cursor: default; opacity: 1; }   /* ready is locked, not greyed */
+.ready-wait { font-size: 0.78rem; color: var(--text-dim); margin-top: 2px; }
 
 /* Tap-to-reveal control sheet */
 .sheet-backdrop {
