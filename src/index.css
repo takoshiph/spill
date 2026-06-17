@@ -132,6 +132,13 @@ body {
 .seq-drop.drop-in { animation: dropIn 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
 @keyframes dropIn { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
 
+/* Typewriter line — an invisible ghost copy reserves full height so nothing reflows while typing */
+.typer { position: relative; width: 100%; max-width: 360px; margin: 16px auto 0; }
+.typer-ghost, .typer-live { margin: 0; text-align: center; color: var(--text-dim); font-size: 0.97rem; line-height: 1.5; }
+.typer-ghost { visibility: hidden; }
+.typer-live { position: absolute; top: 0; left: 0; right: 0; }
+.typer-ghost b, .typer-live b { color: var(--espresso); font-weight: 700; }
+
 /* ===== ReactBits-style flourishes ===== */
 /* Ambient home aurora — slow drifting brand blobs behind the page */
 .home-aurora { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
